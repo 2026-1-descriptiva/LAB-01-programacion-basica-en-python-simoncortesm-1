@@ -5,6 +5,10 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+from collections import defaultdict
+
+from homework._utils import leer_datos, parsear_c5
+
 
 def pregunta_12():
     """
@@ -15,3 +19,7 @@ def pregunta_12():
     {'A': 177, 'B': 187, 'C': 114, 'D': 136, 'E': 324}
 
     """
+    acumulado = defaultdict(int)
+    for fila in leer_datos():
+        acumulado[fila[0]] += sum(valor for _, valor in parsear_c5(fila[4]))
+    return dict(sorted(acumulado.items()))

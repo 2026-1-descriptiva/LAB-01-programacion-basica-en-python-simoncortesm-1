@@ -5,6 +5,10 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+from collections import defaultdict
+
+from homework._utils import leer_datos
+
 
 def pregunta_08():
     """
@@ -27,3 +31,7 @@ def pregunta_08():
      (9, ['A', 'B', 'C', 'E'])]
 
     """
+    grupos = defaultdict(set)
+    for fila in leer_datos():
+        grupos[int(fila[1])].add(fila[0])
+    return [(clave, sorted(valores)) for clave, valores in sorted(grupos.items())]

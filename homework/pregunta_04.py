@@ -5,6 +5,10 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+from collections import Counter
+
+from homework._utils import leer_datos
+
 
 def pregunta_04():
     """
@@ -26,3 +30,5 @@ def pregunta_04():
      ('12', 3)]
 
     """
+    conteo = Counter(fila[2].split("-")[1] for fila in leer_datos())
+    return sorted(conteo.items())

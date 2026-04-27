@@ -5,6 +5,10 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+from collections import defaultdict
+
+from homework._utils import leer_datos, parsear_c5
+
 
 def pregunta_06():
     """
@@ -26,3 +30,8 @@ def pregunta_06():
      ('jjj', 5, 17)]
 
     """
+    valores = defaultdict(list)
+    for fila in leer_datos():
+        for clave, valor in parsear_c5(fila[4]):
+            valores[clave].append(valor)
+    return [(clave, min(nums), max(nums)) for clave, nums in sorted(valores.items())]

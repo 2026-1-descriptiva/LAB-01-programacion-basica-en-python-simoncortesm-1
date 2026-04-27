@@ -5,6 +5,8 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+from homework._utils import leer_datos, parsear_c4, parsear_c5
+
 
 def pregunta_10():
     """
@@ -20,3 +22,7 @@ def pregunta_10():
 
 
     """
+    return [
+        (fila[0], len(parsear_c4(fila[3])), len(parsear_c5(fila[4])))
+        for fila in leer_datos()
+    ]

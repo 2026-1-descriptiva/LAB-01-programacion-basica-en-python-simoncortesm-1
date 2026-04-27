@@ -5,6 +5,8 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+from homework._utils import leer_datos
+
 
 def pregunta_01():
     """
@@ -14,3 +16,4 @@ def pregunta_01():
     214
 
     """
+    return sum(int(fila[1]) for fila in leer_datos())

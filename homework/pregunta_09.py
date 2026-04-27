@@ -5,6 +5,10 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+from collections import defaultdict
+
+from homework._utils import leer_datos, parsear_c5
+
 
 def pregunta_09():
     """
@@ -24,3 +28,8 @@ def pregunta_09():
      'jjj': 18}}
 
     """
+    conteo = defaultdict(int)
+    for fila in leer_datos():
+        for clave, _ in parsear_c5(fila[4]):
+            conteo[clave] += 1
+    return dict(sorted(conteo.items()))
